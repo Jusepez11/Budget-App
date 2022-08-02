@@ -1,24 +1,22 @@
 class Category:
 
-  
+  def __init__(self):
+    self.ledger = []
 
-
-
-
-  def create_spend_chart(categories):
+  def create_spend_chart(self, categories):
     pass 
 
-  def deposit():
+  def deposit(self, amount, description=""):
+    self.ledger.append({"amount": amount, "description": description})
+
+  def withdraw(self):
     pass
 
-  def withdraw():
+  def get_balance(self):
     pass
 
-  def get_balance():
-    pass
-
-  def transfer():
+  def transfer(self):
     pass
   
-  def check_funds():
+  def check_funds(self):
     pass
