@@ -11,10 +11,9 @@ class Category:
 
   def withdraw(self, amount):    
     #Checks if the balance is equal or higher than the amount that will be withdrawn
-    if get_balance() >= amount:
+    if check_funds(amount):
         self.ledger.append({"amount": amount * -1})
         return True
-    
     return False
 
   def get_balance(self):
@@ -28,5 +27,8 @@ class Category:
   def transfer(self):
     pass
   
-  def check_funds(self):
-    pass
+  def check_funds(self, amount):
+    if get_balance() >= amount:
+        return True
+    
+    return False
