@@ -36,6 +36,6 @@ class Category:
     #if there are funds the transfer will be made and the function will return true, otherwise it will return false
     if self.check_funds(amount):
       self.withdraw(amount, ("Transfer to %s" % bCategory))
-      self.deposit(amount, ("Transfer from %s" % bCategory))
+      bCategory.deposit(amount, ("Transfer from %s" % bCategory))
       return True
     return False
