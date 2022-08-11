@@ -4,9 +4,6 @@ class Category:
     self.name = name
     self.ledger = []
 
-  def create_spend_chart(self, categories):
-    pass 
-
   def deposit(self, amount, description=""):
     #adding a deposit to the ledger
     self.ledger.append({"amount": amount, "description": description})
@@ -39,3 +36,9 @@ class Category:
       bCategory.deposit(amount, ("Transfer from %s" % bCategory))
       return True
     return False
+
+def create_spend_chart(self, categories):
+  TOTAL = 0
+  for category in categories:
+    TOTAL += category.get_balance()
+  return TOTAL
