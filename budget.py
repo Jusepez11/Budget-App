@@ -37,8 +37,28 @@ class Category:
       return True
     return False
 
-def create_spend_chart(self, categories):
+def create_spend_chart(categories):
   TOTAL = 0
+  L_CATEGORIES = len(categories)
+  spent_category = []
+  
   for category in categories:
     TOTAL += category.get_balance()
-  return TOTAL
+    spent_category.append(category.get_balance())
+
+  print("total:%s"%TOTAL)
+
+  for i in range(L_CATEGORIES):
+    print("spent:%s"%spent_category[i])
+    spent_category[i] = (spent_category[i]/TOTAL) * 100
+    print("spent P:%s\n"%spent_category[i])
+
+  for t in reversed(range(0,101,10)):
+    print("{:>5d}|".format(t) ,end="")
+    #for i in range(t):
+    for i in range(L_CATEGORIES):
+      if t <= spent_category[i]:
+        print(" o ",end="")
+    print()
+
+  
